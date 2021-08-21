@@ -9,7 +9,7 @@ Các tính năng muốn phát triển:
 - Chat tư vấn
 - Giảm giá
 - Thông báo
-- 
+
 Các công nghệ áp dụng:
 - Web app java (jsp, servlet, mô hình MVC) trên NetBean
 - Cơ sở dữ liệu MySQL
