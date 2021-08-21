@@ -1,5 +1,5 @@
 # Web-ban-hang
-Tiểu Luận Chuyên Ngành
+Tiểu Luận Chuyên Ngành - HK1 (2021-2022)
 
 Thành viên nhóm:
 - Phan Thị Thu Trang 18110217
