@@ -5,7 +5,7 @@ Thành viên nhóm:
 - Phan Thị Thu Trang 18110217
 - Lưu Đình Chuẩn     18110085
 
-Đề tài Web quản lí bán hàng.
+Đề tài Web quản lí bán sách.
 Các tính năng muốn phát triển:
 - Tài khoản và phân quyền quản lí theo admin , manager , customers
 - Danh mục, Giỏ hàng, đơn hàng, , thanh toán ,hoá đơn, nhật kí
