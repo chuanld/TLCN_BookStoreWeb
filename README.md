@@ -7,14 +7,11 @@ Thành viên nhóm:
 
 Đề tài Web quản lí bán sách.
 Các tính năng muốn phát triển:
-- Tài khoản và phân quyền quản lí theo admin , manager , customers
+- Tài khoản và phân quyền quản lí theo admin , customers
 - Danh mục, Giỏ hàng, đơn hàng, , thanh toán ,hoá đơn, nhật kí
-- Chat tư vấn
-- Giảm giá
-- Thông báo
+-Thanh toán trực tuyến, email
 
 Các công nghệ áp dụng:
-- Web app java (jsp, servlet, mô hình MVC) trên NetBean
-- Cơ sở dữ liệu MySQL
+- MERN stack web
 
 GVHD: TS.Huỳnh Xuân Phụng
