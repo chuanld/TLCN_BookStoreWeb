@@ -9,7 +9,7 @@ Thành viên nhóm:
 Các tính năng muốn phát triển:
 - Tài khoản và phân quyền quản lí theo admin , customers
 - Danh mục, Giỏ hàng, đơn hàng, , thanh toán ,hoá đơn, nhật kí
--Thanh toán trực tuyến, email
+- Thanh toán trực tuyến, email
 
 Các công nghệ áp dụng:
 - MERN stack web
