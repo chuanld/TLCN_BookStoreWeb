@@ -9,9 +9,10 @@
 @import url("./template/vendor/bootstrap/css/bootstrap.css");
 /* @import url("./vendor/bootstrap/css/bootstrap.css.map"); */
 /* @import url("./vendor/bootstrap/css/bootstrap.min.css"); */
-@import url("./template/vendor/bootstrap/css/bootstrap.min.css");
+/* @import url("./template/vendor/bootstrap/css/bootstrap.min.css"); */
 /* @import url("./vendor/bootstrap/css/bootstrap.min.css.map"); */
-
+/* ---------------------- Login ---------------------- */
+@import url("./features/auth/auth.css");
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
@@ -19,6 +20,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: honeydew;
 }
 
 p {
@@ -84,4 +86,12 @@ a.filled-button {
   transition: all 0.3s;
 }
 
-@import url("../src/components/headers/header.css");
+/* ---------------------- Header ---------------------- */
+@import url("./components/headers/header.css");
+/* @import url("./assets/css/templatemo-sixteen.css"); */
+
+/* ---------------------- Banner ---------------------- */
+@import url("./features/HomePage/components/banners/banner.css");
+
+/* ---------------------- intro ---------------------- */
+@import url("./features/HomePage/components/intro/intro.css");
