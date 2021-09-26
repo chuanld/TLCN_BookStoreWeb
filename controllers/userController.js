@@ -151,6 +151,43 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  forgotPassword: async (req, res) => {
+    try {
+      const { email } = req.body;
+      const user = await Users.findOne({ email });
+      if (!user)
+        return res.status(400).json({ msg: "This email does not exist!" });
+
+      const accesstoken = createAccessToken({ id: user._id });
+      const url = `${CLIENT_URL}/user/reset/${accesstoken}`;
+      sendMail(
+        email,
+        url,
+        "Re-send the password, please check your email to change"
+      );
+
+      res.json({
+        msg: "Re-send the password, please check your email to change",
+      });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  resetPassword: async (req, res) => {
+    try {
+      const { password } = req.body;
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      await Users.findOneAndUpdate(
+        { _id: req.user.id },
+        { password: passwordHash }
+      );
+
+      res.json({ msg: "Password has change successfully!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 const createActivationToken = (user) => {

@@ -6,9 +6,10 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/headers/Header";
 import Home from "./features/HomePage/Home";
 import Auth from "./features/auth/Auth";
-
+import ForgotPass from "./features/auth/ForgotPass";
+import ResetPass from "./features/auth/ResetPass";
 import ActivationEmail from "./features/auth/Activation";
-
+import Infor from "./features/infor/Infor";
 import NotFound from "./utils/notfound/NotFound";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
               exact
               component={ActivationEmail}
             />
+            <Route path="/forgot" exact component={ForgotPass} />
+            <Route path="/user/reset/:token" exact component={ResetPass} />
+            <Route path="/infor" exact component={Infor} />
             <Route path="/*" exact component={NotFound} />
           </Switch>
         </div>

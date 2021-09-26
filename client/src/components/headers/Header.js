@@ -95,7 +95,7 @@ function Header() {
                   </Link>
                 </li>
               )}
-              <li class="nav-item header-cart">
+              <li className="nav-item header-cart">
                 <span className="count">10</span>
                 <Link to="/cart" className="nav-link">
                   <img src={Cart} alt="" width="21"></img>

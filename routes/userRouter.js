@@ -15,4 +15,9 @@ router.get("/refresh_token", userCtrl.refreshToken);
 
 router.get("/infor", auth, userCtrl.getUser);
 
+//new
+router.post("/forgot", userCtrl.forgotPassword);
+
+//new
+router.post("/reset", auth, userCtrl.resetPassword);
 module.exports = router;

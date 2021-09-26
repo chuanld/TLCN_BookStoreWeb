@@ -1,30 +1,33 @@
 import React from "react";
 import "./about.css";
 import Pic1 from "./images/1.jpg";
+import Pic2 from "./images/2.jpg";
+import Pic3 from "./images/4.jpg";
 import { Link } from "react-router-dom";
+import { Person, SupervisedUserCircle } from "@material-ui/icons";
 
 export default function About() {
   return (
     <div>
-      <section class="blog spad">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="section-heading">
+      <section className="blog spad">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="section-heading">
                 <h2>About us</h2>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="blog__item">
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="blog__item">
                 <div
-                  class="blog__item__pic set-bg"
+                  className="blog__item__pic set-bg"
                   data-setbg="img/blog/1.HEIC"
                 >
-                  <img src={Pic1} alt="" width="auto" height="350px" />
+                  <img src={Pic2} alt="" width="auto" height="350px" />
                 </div>
-                <div class="blog__item__text">
+                <div className="blog__item__text">
                   <span>
-                    <img src="img/2.png" alt="" /> 10 August 2000
+                    <Person /> Sinh viên thực hiện
                   </span>
                   <h5>Lưu Đình Chuẩn</h5>
                   <Link
@@ -37,14 +40,14 @@ export default function About() {
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="blog__item">
-                <div class="blog__item__pic set-bg">
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="blog__item">
+                <div className="blog__item__pic set-bg">
                   <img src={Pic1} alt="" width="auto" height="350px" />
                 </div>
-                <div class="blog__item__text">
+                <div className="blog__item__text">
                   <span>
-                    <img src="" alt="" /> 28 July 2000
+                    <Person /> Sinh viên thực hiện
                   </span>
                   <h5>Phan Thị Thu Trang</h5>
                   <Link
@@ -57,14 +60,17 @@ export default function About() {
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="blog__item">
-                <div class="blog__item__pic set-bg" data-setbg="img/blog/3.jpg">
-                  <img src={Pic1} alt="" width="auto" height="350px" />
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div className="blog__item">
+                <div
+                  className="blog__item__pic set-bg"
+                  data-setbg="img/blog/3.jpg"
+                >
+                  <img src={Pic3} alt="" width="100%" height="350px" />
                 </div>
-                <div class="blog__item__text">
+                <div className="blog__item__text">
                   <span>
-                    <img src="img/icon/calendar.png" alt="" /> 19 October 2000
+                    <SupervisedUserCircle /> Giáo viên hướng dẫn
                   </span>
                   <h5>Huỳnh Xuân Phụng</h5>
                   <Link
@@ -79,12 +85,12 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section class="contact spad">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-md-6">
-              <div class="contact__text">
-                <div class="section-title">
+      <section className="contact spad">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 col-md-6">
+              <div className="contact__text">
+                <div className="section-title">
                   <h2>Description</h2>
                 </div>
                 <ul>
@@ -110,19 +116,19 @@ export default function About() {
                 </ul>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-              {/* <div class="contact__form">
+            <div className="col-lg-6 col-md-6">
+              {/* <div className="contact__form">
                 <form action="mailto:delwynshop2807@gmail.com">
-                  <div class="row">
-                    <div class="col-lg-6">
+                  <div className="row">
+                    <div className="col-lg-6">
                       <input type="text" placeholder="Name" />
                     </div>
-                    <div class="col-lg-6">
+                    <div className="col-lg-6">
                       <input type="text" placeholder="Email" />
                     </div>
-                    <div class="col-lg-12">
+                    <div className="col-lg-12">
                       <textarea placeholder="Message"></textarea>
-                      <button type="submit" class="site-btn">
+                      <button type="submit" className="site-btn">
                         Send Message
                       </button>
                     </div>
@@ -133,16 +139,16 @@ export default function About() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4834820480405!2d106.7696897143373!3d10.850783860785006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527bb99e5e311%3A0x2b9708abbd951e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgdGh14bqtdCBUcC4gSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1607073274577!5m2!1svi!2s"
                 width="600"
                 height="400"
-                frameborder="0"
+                frameBorder="0"
                 aria-hidden="false"
-                tabindex="0"
+                tabIndex="0"
                 alt=""
                 title="ss"
               ></iframe>
             </div>
           </div>
         </div>
-        {/* <div class="map">
+        {/* <div className="map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4834820480405!2d106.7696897143373!3d10.850783860785006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527bb99e5e311%3A0x2b9708abbd951e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgdGh14bqtdCBUcC4gSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1607073274577!5m2!1svi!2s"
             width="600"
