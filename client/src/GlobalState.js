@@ -22,6 +22,7 @@ export const DataProvider = ({ children }) => {
   const state = {
     token: [token, setToken],
     userApi: UserApi(token),
+    //allUsersApi: AllUsersApi(token),
   };
 
   return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;

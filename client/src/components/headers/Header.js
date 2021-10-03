@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import Cart from "./icon/cart3.svg";
 import { Link } from "react-router-dom";
 import { GlobalState } from "../../GlobalState";
 import axios from "axios";
+import { ShoppingCart } from "@material-ui/icons";
 
 function Header() {
   const state = useContext(GlobalState);
@@ -96,9 +96,10 @@ function Header() {
                 </li>
               )}
               <li className="nav-item header-cart">
-                <span className="count">10</span>
+                <span className="count">0</span>
                 <Link to="/cart" className="nav-link">
-                  <img src={Cart} alt="" width="21"></img>
+                  {/* <img src={Cart} alt="" width="21"></img> */}
+                  <ShoppingCart />
                 </Link>
               </li>
             </ul>

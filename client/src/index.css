@@ -95,3 +95,6 @@ a.filled-button {
 
 /* ---------------------- intro ---------------------- */
 @import url("./features/HomePage/components/intro/intro.css");
+
+/* ---------------------- Admin ---------------------------- */
+@import url("./features/adminpage/features/userdetail/userdetail.css");

@@ -10,16 +10,17 @@ Tiểu Luận Chuyên Ngành
 - Run client: npm start
 - Run server: npm run dev
 
-## Update Tuần 5 (26/09)
+## Update Tuần 6 (03/10)
 
 ### Đã hoàn thành
 
 - Cơ sở dữ liệu User
 - Đăng nhập, đăng kí (email), đăng xuất
 - Lưu trữ đăng nhập, xem thông tin cá nhân, quên mật khẩu
+- Phân quyền Admin và các chức năng với tài khoản
 - Giao diện các tính năng trên
 
 ### Dự kiến hoàn thành
 
-- Đổi mật khẩu, phân quyền Admin và chức năng (tài khoản)
+- Sản phẩm, giỏ hàng
 - Giao diện các tính năng trên

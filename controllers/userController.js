@@ -141,6 +141,32 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  changePassword: async (req, res) => {
+    try {
+      const { password, newPassword } = req.body;
+      if (newPassword.length < 6)
+        return res
+          .status(400)
+          .json({ msg: "New password must be least 6 character" });
+      const user = await Users.findOne({ _id: req.user.id });
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch)
+        return res
+          .status(400)
+          .json({ msg: "Password is wrong. Unable change pass" });
+
+      const passwordHash = await bcrypt.hash(newPassword, 12);
+
+      await Users.findOneAndUpdate(
+        { _id: req.user.id },
+        { password: passwordHash }
+      );
+
+      res.json({ msg: "Password has change successfully!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   getUser: async (req, res) => {
     try {
       const user = await Users.findById(req.user.id).select("-password");
@@ -184,6 +210,122 @@ const userCtrl = {
       );
 
       res.json({ msg: "Password has change successfully!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getAllUsers: async (req, res) => {
+    try {
+      const users = await Users.find();
+      res.json(users);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  createUser: async (req, res) => {
+    try {
+      const { name, email, address, phone, role, password } = req.body;
+      const user = await Users.findOne({ email });
+      if (user) {
+        return res.status(400).json({ msg: "The email is already exist" }); //Check exist
+      }
+      //Check password
+      if (password.length < 6)
+        return res
+          .status(400)
+          .json({ msg: "Password is at least 6 characters" });
+      //Encode password
+      const passwordHash = await bcrypt.hash(password, 10);
+      const newUser = new Users({
+        name,
+        email,
+        address,
+        password: passwordHash,
+        phone,
+        role,
+      });
+      // ---------This code for register basic------------
+      //Save on cloud MongoDB
+      await newUser.save();
+
+      //Using jwt to authentication
+      // const accesstoken = createAccessToken({ id: newUser._id });
+      // const refreshtoken = createRefreshToken({ id: newUser._id });
+
+      // res.cookie("refreshtoken", refreshtoken, {
+      //   httpOnly: true,
+      //   path: "/user/refresh_token",
+      // });
+
+      // res.json({ msg: "Create account successfully!", accesstoken });
+
+      // const activationtoken = createActivationToken(newUser);
+
+      // const url = `${CLIENT_URL}/user/activate/${activationtoken}`;
+      // sendMail(email, url, "Verify your email to active account. Thanks you!");
+
+      // res.json({
+      //   msg: "Wellcome u with us, please check your email to activate account",
+      // });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  updateUser: async (req, res) => {
+    try {
+      const { name, address, phone } = req.body;
+      // if (password) {
+      //   if (password.length < 6)
+      //     return res
+      //       .status(400)
+      //       .json({ msg: "Password is at least 6 characters" });
+      //   var passwordHash = await bcrypt.hash(password, 12);
+      //   return passwordHash;
+      // }
+      // console.log(passwordHash);
+
+      // if (!password)
+      //   return res.status(400).json({ msg: "Please confirm password!" });
+      // if (password.length < 6)
+      //   return res
+      //     .status(400)
+      //     .json({ msg: "Password is at least 6 characters" });
+      // const passwordHash = await bcrypt.hash(password, 12);
+      await Users.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          name,
+          address,
+          phone,
+        }
+      );
+      res.json({ msg: "Update infomation successfully!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  updateAllUsers: async (req, res) => {
+    try {
+      const { name, address, phone, role } = req.body;
+
+      await Users.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          name,
+          address,
+          phone,
+          role,
+        }
+      );
+      res.json({ msg: "Update infomation user successfully}!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  deleteUsers: async (req, res) => {
+    try {
+      await Users.findByIdAndDelete({ _id: req.params.id });
+      res.json({ msg: "Delete account user successfully!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

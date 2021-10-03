@@ -18,7 +18,6 @@
   font-size: 50px !important;
 }
 .userAddButton {
-  width: 80px;
   border: none;
   padding: 5px;
   background-color: teal;
@@ -34,6 +33,14 @@
   padding: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.userUpdate {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
 }
 
 .userShowTop {
@@ -83,23 +90,15 @@
   margin-left: 10px;
 }
 
-.userUpdate {
-  flex: 2;
-  padding: 20px;
-  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  margin-left: 20px;
-}
 .userUpdateTitle {
   font-size: 24px;
   font-weight: 600;
 }
-.userUpdateContainer {
+.userUpdateForm {
   display: flex;
   justify-content: space-between;
   background-color: honeydew;
 }
-
 .userUpdateItem {
   display: flex;
   flex-direction: column;
@@ -132,11 +131,4 @@
   width: 100px;
   justify-content: center;
   size: 30px;
-}
-
-.warning {
-  color: red;
-  margin-top: 20px;
-  margin-left: 5px;
-  font-size: 10px;
 }

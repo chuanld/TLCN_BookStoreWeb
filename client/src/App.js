@@ -10,6 +10,8 @@ import ForgotPass from "./features/auth/ForgotPass";
 import ResetPass from "./features/auth/ResetPass";
 import ActivationEmail from "./features/auth/Activation";
 import Infor from "./features/infor/Infor";
+
+import AdminPage from "./features/adminpage/AdminPage";
 import NotFound from "./utils/notfound/NotFound";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
             <Route path="/forgot" exact component={ForgotPass} />
             <Route path="/user/reset/:token" exact component={ResetPass} />
             <Route path="/infor" exact component={Infor} />
+
+            <Route path="/admin" exact component={AdminPage} />
             <Route path="/*" exact component={NotFound} />
           </Switch>
         </div>
