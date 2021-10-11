@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GlobalState } from "../../GlobalState";
 import axios from "axios";
 import { ShoppingCart } from "@material-ui/icons";
@@ -8,6 +8,7 @@ function Header() {
   const state = useContext(GlobalState);
   const [isLogged, setIsLogged] = state.userApi.isLogged;
   const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
+  const [cart] = state.userApi.cart;
 
   const adminRouter = () => {
     return (
@@ -30,14 +31,19 @@ function Header() {
     return (
       <>
         <li className="nav-item">
-          <Link to="/infor" className="nav-link">
+          <NavLink to="/infor" className="nav-link" activeClassName="active">
             Profile
-          </Link>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <Link to="/" className="nav-link" onClick={logoutUser}>
+          <NavLink
+            to="/"
+            className="nav-link"
+            activeClassName="active"
+            onClick={logoutUser}
+          >
             Logout
-          </Link>
+          </NavLink>
         </li>
       </>
     );
@@ -46,6 +52,7 @@ function Header() {
   const logoutUser = async () => {
     await axios.get("/user/logout");
     localStorage.clear();
+    window.location.href = "/";
     setIsAdmin(false);
     setIsLogged(false);
   };
@@ -72,16 +79,25 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
-                <Link to="/" className="nav-link">
+              <li className="nav-item">
+                <NavLink
+                  to="/"
+                  className="nav-link"
+                  exact
+                  activeClassName="active"
+                >
                   Home
                   <span className="sr-only">(current)</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/products" className="nav-link">
+                <NavLink
+                  to="/products"
+                  className="nav-link"
+                  activeClassName="active"
+                >
                   {isAdmin ? "Shop" : "Products"}
-                </Link>
+                </NavLink>
               </li>
 
               {isAdmin ? (
@@ -90,17 +106,25 @@ function Header() {
                 loggedRouter()
               ) : (
                 <li className="nav-item">
-                  <Link to="/auth" className="nav-link">
+                  <NavLink
+                    to="/auth"
+                    className="nav-link"
+                    activeClassName="active"
+                  >
                     Login ⫘ Register
-                  </Link>
+                  </NavLink>
                 </li>
               )}
               <li className="nav-item header-cart">
-                <span className="count">0</span>
-                <Link to="/cart" className="nav-link">
+                <span className="count">{cart.length}</span>
+                <NavLink
+                  to="/cart"
+                  className="nav-link"
+                  activeClassName="active"
+                >
                   {/* <img src={Cart} alt="" width="21"></img> */}
                   <ShoppingCart />
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
