@@ -11,19 +11,19 @@ Tiểu Luận Chuyên Ngành
 - Run client: npm start
 - Run server: npm run dev
 
-## Update Tuần 7 (10/10)
+## Update Tuần 8 (18/10)
 
 ### Đã hoàn thành
 
-- Cơ sở dữ liệu Users, Products
+- Cơ sở dữ liệu Users, Products, Categories
 - Đăng nhập, đăng kí (email), đăng xuất
 - Lưu trữ đăng nhập, xem thông tin cá nhân, quên mật khẩu
 - Phân quyền Admin và các chức năng với tài khoản
 - Upload sản phẩm lên cloud, load sản phẩm, chức năng giỏ hàng
+- Chức năng thanh toán, danh mục sản phẩm, hoá đơn sản phẩm
 - Giao diện các tính năng trên
 
 ### Dự kiến hoàn thành
 
-- Chức năng thanh toán, hoá đơn (Đang hoàn thiện)
-- Chức năng admin
+- Chức năng admin (quản lí sản phẩm, hoá đơn, danh mục)
 - Giao diện các tính năng trên
