@@ -15,11 +15,11 @@ Tiểu Luận Chuyên Ngành
 
 ### Đã hoàn thành
 
-- Cơ sở dữ liệu User
+- Cơ sở dữ liệu Users, Products
 - Đăng nhập, đăng kí (email), đăng xuất
 - Lưu trữ đăng nhập, xem thông tin cá nhân, quên mật khẩu
 - Phân quyền Admin và các chức năng với tài khoản
-- Sản phẩm, chức năng giỏ hàng
+- Upload sản phẩm lên cloud, load sản phẩm, chức năng giỏ hàng
 - Giao diện các tính năng trên
 
 ### Dự kiến hoàn thành

@@ -1,4 +1,5 @@
 const Users = require("../models/userModel");
+const Orders = require("../models/orderModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const sendMail = require("./sendMail");
@@ -328,6 +329,31 @@ const userCtrl = {
       res.json({ msg: "Delete account user successfully!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
+    }
+  },
+  addtoCart: async (req, res) => {
+    try {
+      const user = await Users.findOne({ _id: req.user.id });
+      if (!user) return res.status(400).json({ msg: "User does not exist" });
+
+      await Users.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          cart: req.body.cart,
+        }
+      );
+
+      return res.json({ msg: "Add to cart successfully" });
+    } catch (err) {
+      return res.status(400).json({ msg: err.message });
+    }
+  },
+  orderInfo: async (req, res) => {
+    try {
+      const orderInfo = await Orders.find({ user_id: req.user.id });
+      res.json(orderInfo);
+    } catch (err) {
+      return res.status(400).json({ msg: err.message });
     }
   },
 };

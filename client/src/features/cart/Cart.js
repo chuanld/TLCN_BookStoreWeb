@@ -3,6 +3,7 @@ import { GlobalState } from "../../GlobalState";
 import ListCart from "./listcart/ListCart";
 import Bill from "./bill/Bill";
 import Footers from "../../components/footers/Footers";
+import Shipping from "../../components/shipping/Shipping";
 function Cart() {
   const state = useContext(GlobalState);
   const [cart] = state.userApi.cart;
@@ -18,14 +19,15 @@ function Cart() {
     );
 
   return (
-    <div>
-      <h3 style={{ textAlign: "center" }}>Your cart shopping</h3>
+    <div className="cart-shopping">
+      <h3 className="title-cart">You have {cart.length} products shopping</h3>
       <div className="cart_container">
         <ListCart />
         <div className="bill_container">
           <Bill />
         </div>
       </div>
+      <Shipping />
       <Footers />
     </div>
   );

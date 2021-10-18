@@ -28,7 +28,7 @@ function ListCart() {
       }
     });
     setCart([...cart]);
-    updateCart();
+    updateCart(cart);
   };
   const decrement = (id) => {
     cart.forEach((item) => {
@@ -37,7 +37,7 @@ function ListCart() {
       }
     });
     setCart([...cart]);
-    updateCart();
+    updateCart(cart);
   };
 
   //Delete cartItem
@@ -49,7 +49,7 @@ function ListCart() {
         }
       });
     setCart([...cart]);
-    updateCart();
+    updateCart(cart);
   };
 
   //Update DB

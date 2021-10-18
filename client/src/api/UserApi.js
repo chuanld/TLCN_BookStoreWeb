@@ -5,8 +5,10 @@ function UserApi(token) {
   const [isLogged, setIsLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [infor, setInfor] = useState([]);
+  const [givenName, setGivenName] = useState([]);
   const [cart, setCart] = useState([]);
   const [orderInfo, setOrderInfo] = useState([]);
+  const [callback, setCallback] = useState([]);
 
   useEffect(() => {
     if (token) {
@@ -18,6 +20,7 @@ function UserApi(token) {
           setIsLogged(true);
           res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
           setInfor(res.data);
+          setGivenName(res.data.name.split(" ").pop());
           setCart(res.data.cart);
           //console.log(res);
         } catch (err) {
@@ -60,14 +63,16 @@ function UserApi(token) {
       };
       getOrderInfo();
     }
-  }, [token]);
+  }, [token, callback]);
   return {
     isLogged: [isLogged, setIsLogged],
     isAdmin: [isAdmin, setIsAdmin],
     infor: [infor, setInfor],
+    givenName: [givenName, setGivenName],
     cart: [cart, setCart],
     addCart: addCart,
     orderInfo: [orderInfo, setOrderInfo],
+    callback: [callback, setCallback],
   };
 }
 

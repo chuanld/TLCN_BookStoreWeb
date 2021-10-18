@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./bill.css";
 import PaypalButton from "./PaypalButton";
+// import PaypalButtonV2 from "./PaypalButtonV2";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 export default function Bill() {
@@ -9,6 +10,8 @@ export default function Bill() {
   const [infor] = state.userApi.infor;
   const [cart, setCart] = state.userApi.cart;
   const [total, setTotal] = useState(0);
+  const [callback, setCallback] = state.userApi.callback;
+
   // const [itemid, setItemId] = useState(0);
 
   useEffect(() => {
@@ -43,12 +46,32 @@ export default function Bill() {
         headers: { Authorization: token },
       }
     );
-
     cart.splice(0, cart.length);
     setCart([...cart]);
-    updateCart();
+    updateCart(cart);
     alert("You have successfully paid. Thanks you for trust us");
+    setCallback(!callback);
   };
+  // const tranSuccess1 = async (payment) => {
+  //   console.log(payment);
+  //   const option = { type: "Paypal payment", paywith: "default" };
+  //   const { payer_id, address } = payment;
+  //   const paymentID = "PAYID-" + payer_id;
+  //   console.log(paymentID);
+  //   await axios.post(
+  //     "/api/order",
+  //     { cart, orderID: paymentID, address, option },
+  //     {
+  //       headers: { Authorization: token },
+  //     }
+  //   );
+
+  //   cart.splice(0, cart.length);
+  //   setCart([...cart]);
+  //   updateCart(cart);
+  //   alert("You have successfully paid. Thanks you for trust us");
+  //   setCallback(!callback);
+  // };
 
   const updateCart = async (cart) => {
     await axios.patch(
@@ -88,12 +111,11 @@ export default function Bill() {
       );
       cart.splice(0, cart.length);
       setCart([...cart]);
-      updateCart();
+      updateCart(cart);
       alert("You have successfully paid. Thanks you for trust us");
+      setCallback(!callback);
     }
   };
-
-  console.log(cart);
   return (
     <div className="total_cart">
       <h3 style={{ textAlign: "center" }}>Your order</h3>
@@ -104,7 +126,7 @@ export default function Bill() {
 
       <div style={{ textAlign: "center" }}>-------------------------------</div>
       {cart.map((bill) => (
-        <div className="row">
+        <div className="row" key={bill._id}>
           <h6 className="subtotal">
             Subtotal: ${bill.price} x {bill.quantity}
           </h6>
@@ -123,14 +145,19 @@ export default function Bill() {
       <div className="btn_checkout">
         <h6>Phương thức thanh toán</h6>
         <div className="row">
-          <div>
+          <div className="payment">
             <button className="shipcod" onClick={chkShipCOD}>
               ShipCOD
             </button>
           </div>
-          ---⫗---
+          --⫗--
           <div className="payment">
             <PaypalButton total={total} tranSuccess={tranSuccess} />
+            {/* <PaypalButtonV2
+              className="paypal-checkout"
+              total={total}
+              tranSuccess={tranSuccess1}
+            /> */}
           </div>
         </div>
       </div>

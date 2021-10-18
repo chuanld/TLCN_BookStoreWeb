@@ -1,14 +1,14 @@
 /* Product Page */
 
 .products {
-  margin-top: 100px;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  display: flex;
+  flex-wrap: wrap;
   justify-items: center;
-  justify-content: space-evenly;
-  margin: 40px 0;
-  padding: 20px;
+  justify-content: flex-start;
+  padding: 0px 180px;
 }
 
 /* .products .filters {

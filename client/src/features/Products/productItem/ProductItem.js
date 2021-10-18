@@ -15,7 +15,8 @@ function ProductItem({ product }) {
         <h4 title={product.title}>{product.title}</h4>
 
         <h6>${product.price}</h6>
-        <p>{product.description}</p>
+        <p>Sold: {product.sold}</p>
+        <p>Author: {product.author}</p>
       </div>
       <div className="row_btn">
         <Link to="#">

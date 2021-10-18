@@ -31,4 +31,8 @@ router.post("/create_infor", auth, authAdmin, userCtrl.createUser);
 router.patch("/all_update/:id", auth, authAdmin, userCtrl.updateAllUsers);
 
 router.delete("/delete/:id", auth, authAdmin, userCtrl.deleteUsers);
+//addCart
+router.patch("/addtocart", auth, userCtrl.addtoCart);
+//Order
+router.get("/order_infor", auth, userCtrl.orderInfo);
 module.exports = router;

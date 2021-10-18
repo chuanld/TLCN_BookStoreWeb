@@ -1,4 +1,5 @@
 import React from "react";
+import Shipping from "../../components/shipping/Shipping";
 import Footers from "../../components/footers/Footers";
 
 import BannerProduct from "./bannerProduct/BannerProduct";
@@ -11,6 +12,7 @@ function Products() {
       <BannerProduct />
       <Filters />
       <ProductList />
+      <Shipping />
       <Footers />
     </div>
   );
