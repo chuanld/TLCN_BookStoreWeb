@@ -11,7 +11,7 @@ Tiểu Luận Chuyên Ngành
 - Run client: npm start
 - Run server: npm run dev
 
-## Update Tuần 8 (24/10)
+## Update Tuần 9 (24/10)
 
 ### Đã hoàn thành
 
