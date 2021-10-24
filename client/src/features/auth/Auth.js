@@ -13,6 +13,7 @@ function Login({ closeModal }) {
   const state = useContext(GlobalState);
   const [givenName] = state.userApi.givenName;
   const [, setToken] = state.token;
+  const [callback, setCallback] = state.callback;
   const [user, setUser] = useState({
     email: "",
     name: "",
@@ -29,6 +30,7 @@ function Login({ closeModal }) {
       const res = await axios.post("/user/login", { ...user });
       setToken(res.data.accesstoken);
       localStorage.setItem("firstLogin", true);
+      setCallback(!callback);
       history.push("/");
       toast.success(`Hello ${givenName} come back.`);
       closeModal();

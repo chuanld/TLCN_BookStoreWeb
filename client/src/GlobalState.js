@@ -9,6 +9,7 @@ export const GlobalState = createContext();
 
 export const DataProvider = ({ children }) => {
   const [token, setToken] = useState(false);
+  const [callback, setCallback] = useState(false);
 
   useEffect(() => {
     // const firstLogin = localStorage.getItem("firstLogin");
@@ -26,12 +27,15 @@ export const DataProvider = ({ children }) => {
         }, 28 * 60 * 1000);
       }
     };
-    refreshToken();
-  }, []);
+    setTimeout(() => {
+      refreshToken();
+    }, 28 * 60 * 1000);
+  }, [callback]);
 
   //API
   const state = {
     token: [token, setToken],
+    callback: [callback, setCallback],
     productsApi: ProductsApi(),
     categoriesApi: CategoriesApi(),
     userApi: UserApi(token),

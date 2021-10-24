@@ -207,7 +207,10 @@ function Header() {
                   </div>
                   <div className="header_account_area">
                     <div className="header_account-list top_links">
-                      <span className="count">{cart.length}</span>
+                      {isLogged && cart.length !== 0 ? (
+                        <span className="count">{cart.length}</span>
+                      ) : null}
+
                       <NotificationImportantOutlined className="icon-users" />
                       {isLogged && cart.length !== 0 ? (
                         <ul className="dropdown_links">
@@ -220,7 +223,9 @@ function Header() {
                       ) : null}
                     </div>
                     <div className="header_account-list mini_cart_wrapper top_links">
-                      <span className="count">{cart.length}</span>
+                      {isLogged && cart.length !== 0 ? (
+                        <span className="count">{cart.length}</span>
+                      ) : null}
                       <ShoppingCart className="icon-users" />
                       {isLogged && cart.length !== 0 ? (
                         <ul className="dropdown_links">
