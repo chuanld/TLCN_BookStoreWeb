@@ -103,7 +103,7 @@ ul.social-icons li:hover {
 /* ---------------------- DetailProduct ---------------------- */
 @import url("./features/Products/detailProduct/detailProduct.css");
 
-/* ---------------------- Admin ---------------------------- */
+/* ---------------------  Admin Page  --------------------------- */
 @import url("./features/adminpage/features/userdetail/userdetail.css");
 
 /* ---------------------  Cart  --------------------------- */

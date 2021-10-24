@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./bill.css";
-import PaypalButton from "./PaypalButton";
+import PaypalExpressBtn from "./PaypalButton";
 // import PaypalButtonV2 from "./PaypalButtonV2";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
@@ -145,14 +145,14 @@ export default function Bill() {
       <div className="btn_checkout">
         <h6>Phương thức thanh toán</h6>
         <div className="row">
-          <div className="payment">
+          <div>
             <button className="shipcod" onClick={chkShipCOD}>
               ShipCOD
             </button>
           </div>
-          --⫗--
+          ---⫗---
           <div className="payment">
-            <PaypalButton total={total} tranSuccess={tranSuccess} />
+            <PaypalExpressBtn total={total} tranSuccess={tranSuccess} />
             {/* <PaypalButtonV2
               className="paypal-checkout"
               total={total}

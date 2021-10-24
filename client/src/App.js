@@ -22,7 +22,6 @@ import NotFound from "./utils/notfound/NotFound";
 function App() {
   const state = useContext(GlobalState);
   const [isLogged] = state.userApi.isLogged;
-  console.log(isLogged);
   return (
     <Router>
       <div className="App">

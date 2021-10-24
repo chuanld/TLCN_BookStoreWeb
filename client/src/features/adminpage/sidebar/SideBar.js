@@ -33,9 +33,16 @@ export default function SideBar() {
                 Products
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BorderColor className="sidebarIcon" /> Orders
-            </li>
+            <Link to="/categorieslist">
+              <li className="sidebarListItem">
+                <CalendarToday className="sidebarIcon" /> Categories
+              </li>
+            </Link>
+            <Link to="/orderlist">
+              <li className="sidebarListItem">
+                <BorderColor className="sidebarIcon" /> Orders
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <CalendarToday className="sidebarIcon" /> Logs
             </li>

@@ -11,7 +11,7 @@ Tiểu Luận Chuyên Ngành
 - Run client: npm start
 - Run server: npm run dev
 
-## Update Tuần 8 (18/10)
+## Update Tuần 8 (24/10)
 
 ### Đã hoàn thành
 
@@ -25,5 +25,5 @@ Tiểu Luận Chuyên Ngành
 
 ### Dự kiến hoàn thành
 
-- Chức năng admin (quản lí sản phẩm, hoá đơn, danh mục)
+- Chức năng admin (quản lí sản phẩm)
 - Giao diện các tính năng trên

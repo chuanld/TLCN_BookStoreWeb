@@ -1,5 +1,5 @@
 .createUser {
-  flex: 4;
+  margin: 30px;
 }
 
 .createUserIcon {
@@ -7,11 +7,13 @@
   font-size: 30px !important;
   margin-bottom: 5px;
 }
-.createUserForm {
+
+.createUserFormItem {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
-
 .createUserItem {
   width: 450px;
   display: flex;
@@ -30,8 +32,8 @@
 .createUserItem > input {
   height: 40px;
   padding: 10px;
+  border: none;
   border-bottom: 1px solid gray;
-  border-radius: 5px;
   background-color: honeydew;
 }
 
@@ -45,6 +47,8 @@
   margin: auto;
   font-weight: 600;
   cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 .createUserButton:hover {
   color: black;

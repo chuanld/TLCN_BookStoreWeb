@@ -87,12 +87,12 @@ export default function About() {
       </section>
       <section className="contact spad">
         <div className="container">
+          <div className="section-heading">
+            <h2>Description</h2>
+          </div>
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <div className="contact__text">
-                <div className="section-title">
-                  <h2>Description</h2>
-                </div>
                 <ul>
                   <li>
                     <h4>
@@ -117,28 +117,10 @@ export default function About() {
               </div>
             </div>
             <div className="col-lg-6 col-md-6">
-              {/* <div className="contact__form">
-                <form action="mailto:delwynshop2807@gmail.com">
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <input type="text" placeholder="Name" />
-                    </div>
-                    <div className="col-lg-6">
-                      <input type="text" placeholder="Email" />
-                    </div>
-                    <div className="col-lg-12">
-                      <textarea placeholder="Message"></textarea>
-                      <button type="submit" className="site-btn">
-                        Send Message
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div> */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4834820480405!2d106.7696897143373!3d10.850783860785006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527bb99e5e311%3A0x2b9708abbd951e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgdGh14bqtdCBUcC4gSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1607073274577!5m2!1svi!2s"
                 width="600"
-                height="400"
+                height="350"
                 frameBorder="0"
                 aria-hidden="false"
                 tabIndex="0"

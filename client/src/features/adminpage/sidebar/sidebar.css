@@ -1,9 +1,10 @@
 .sidebar {
   flex: 1;
-  height: calc(89vh);
+  position: absolute;
+  height: calc(93vh);
   background-color: rgb(210, 241, 210);
+  top: 56px;
   position: sticky;
-  top: 0px;
   color: black;
 }
 
@@ -16,7 +17,9 @@
 .sidebarMenu {
   margin-bottom: 10px;
 }
-
+.sidebarMenu ul a {
+  text-decoration: ivory;
+}
 .sidebarTitle {
   font-size: 25px;
   color: rgb(17, 2, 2);

@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import facebook from "./images/facebook.svg";
 import google from "./images/google.svg";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { GlobalState } from "../../GlobalState";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-function Login(props) {
+function Login({ closeModal }) {
+  const history = useHistory();
+  const state = useContext(GlobalState);
+  const [givenName] = state.userApi.givenName;
+  const [, setToken] = state.token;
   const [user, setUser] = useState({
     email: "",
     name: "",
@@ -18,9 +26,14 @@ function Login(props) {
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/user/login", { ...user });
+      const res = await axios.post("/user/login", { ...user });
+      setToken(res.data.accesstoken);
       localStorage.setItem("firstLogin", true);
-      window.location.href = "/";
+      history.push("/");
+      toast.success(`Hello ${givenName} come back.`);
+      closeModal();
+
+      // window.location.href = "/";
     } catch (err) {
       alert(err.response.data.msg);
     }

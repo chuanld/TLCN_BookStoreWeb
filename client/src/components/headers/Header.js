@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { GlobalState } from "../../GlobalState";
 import axios from "axios";
 import {
@@ -10,14 +12,40 @@ import {
 } from "@material-ui/icons";
 import ListIcon from "@mui/icons-material/List";
 import Logo from "./images/logo.png";
+import Modal from "react-modal";
+import FormAuth from "../../features/auth/Auth";
+
+Modal.setAppElement(document.getElementById("root"));
+const customStyles1 = {
+  overlay: {
+    backgroundColor: "rgba(255, 255, 255, 0.75)",
+    border: "none",
+    zIndex: "999",
+  },
+  content: {
+    top: "375px",
+    overflow: "unset",
+    border: "none",
+    background: "transparent",
+    height: "auto",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 function Header() {
   const state = useContext(GlobalState);
+  const [, setToken] = state.token;
   const [givenName] = state.userApi.givenName;
   const [isLogged, setIsLogged] = state.userApi.isLogged;
   const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
   const [cart] = state.userApi.cart;
   const [categories] = state.categoriesApi.categories;
+
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   // const adminRouter = () => {
   //   return (
@@ -61,7 +89,9 @@ function Header() {
   const logoutUser = async () => {
     await axios.get("/user/logout");
     localStorage.clear();
-    window.location.href = "/";
+    setToken(false);
+    toast.success("See you again ^^");
+    // window.location.href = "/";
     setIsAdmin(false);
     setIsLogged(false);
   };
@@ -87,6 +117,21 @@ function Header() {
     );
   };
 
+  //modal auth
+  //let subtitle;
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    //subtitle.style.color = "#f000";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   return (
     <>
       {/* // <header> */}
@@ -122,7 +167,7 @@ function Header() {
             <div className="row align-items-center">
               <div className="col-lg-3 col-md-3 col-4">
                 <div className="logo">
-                  <Link to="">
+                  <Link to="#">
                     <img src={Logo} alt="" />
                   </Link>
                 </div>
@@ -196,7 +241,11 @@ function Header() {
                           ) : isLogged ? (
                             accountUser()
                           ) : (
-                            <Link to="/auth" className="auth_acc">
+                            <Link
+                              to="#"
+                              className="auth_acc"
+                              onClick={openModal}
+                            >
                               <p>Login/Register</p>
                               <p>Account</p>
                             </Link>
@@ -211,7 +260,7 @@ function Header() {
                               <Link to="/cart">Cart shopping</Link>
                             </li>
                             <li>
-                              <Link to="#" onClick={logoutUser}>
+                              <Link to="/" onClick={logoutUser}>
                                 Logout account
                               </Link>
                             </li>
@@ -280,17 +329,7 @@ function Header() {
                           Cart
                         </NavLink>
                       </li>
-                    ) : (
-                      <li>
-                        <NavLink
-                          to="/auth"
-                          className="nav-link"
-                          activeClassName="active"
-                        >
-                          Cart
-                        </NavLink>
-                      </li>
-                    )}
+                    ) : null}
                     {isAdmin ? (
                       <li>
                         <NavLink
@@ -316,6 +355,19 @@ function Header() {
       </div>
       {/* <div className="header_bottom sticky-header"></div> */}
       {/* </header>  */}
+      {/* Modal Login */}
+      <div className="form-login-modal">
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles1}
+          //portalClassName="modal"
+          contentLabel="Example Modal"
+        >
+          <FormAuth closeModal={closeModal} />
+        </Modal>
+      </div>
     </>
   );
 }

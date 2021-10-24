@@ -18,6 +18,7 @@
   font-size: 50px !important;
 }
 .userAddButton {
+  width: 80px;
   border: none;
   padding: 5px;
   background-color: teal;

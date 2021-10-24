@@ -1,3 +1,6 @@
+.admin-page {
+  height: auto;
+}
 .container-ad {
   display: flex;
 }
@@ -5,5 +8,4 @@
 .others {
   flex: 4;
   background-color: honeydew;
-  padding: 20px;
 }

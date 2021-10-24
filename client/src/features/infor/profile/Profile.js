@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import "./profile.css";
 import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
-
 import dateFormat from "dateformat";
 import { AccountCircle, PermIdentity, Settings } from "@material-ui/icons";
 

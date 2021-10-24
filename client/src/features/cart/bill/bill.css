@@ -23,7 +23,13 @@
   margin-top: 10px;
 }
 .payment {
+  display: block;
+  margin-top: 20px;
   width: 150px;
+}
+.paypal-button,
+#zoid-paypal-button-e02b80aec3 {
+  overflow: unset !important;
 }
 .paypal-checkout {
   width: 100%;
