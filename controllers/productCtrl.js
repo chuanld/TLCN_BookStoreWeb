@@ -1,4 +1,3 @@
-const { findOne } = require("../models/productModel");
 const Products = require("../models/productModel");
 
 // CRUD with products
@@ -10,9 +9,10 @@ const productCtrl = {
         .filtering()
         .sorting()
         .paginating();
-
+      const countTotal = await Products.find().count();
       const products = await features.query; //Product.find() if not add features for product page
       res.json({
+        totalResult: countTotal,
         result: products.length,
         products,
       });
@@ -100,7 +100,7 @@ const productCtrl = {
   deleteProduct: async (req, res) => {
     try {
       await Products.findByIdAndDelete({ _id: req.params.id });
-      res.json({ msg: "Delete product successfully!" });
+      res.json({ msg: "Delete product in database successfully!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -117,7 +117,7 @@ class APIfeatures {
     const queryObj = { ...this.queryString }; //queryString = req.body
     console.log({ before: queryObj });
 
-    const excludedFields = ["page", "sort", "limit"];
+    const excludedFields = ["page", "sort", "limit", "skipp"];
     excludedFields.forEach((el) => delete queryObj[el]);
     console.log({ after: queryObj });
 
@@ -143,10 +143,11 @@ class APIfeatures {
     return this;
   }
   paginating() {
-    const page = this.queryString * 1 || 1;
-    const limit = this.queryString * 1 || 9;
+    const page = this.queryString.page * 1 || 1;
+    const limit = this.queryString.limit * 1 || 9;
     const skip = (page - 1) * limit;
     this.query = this.query.skip(skip).limit(limit);
+    console.log(skip);
     return this;
   }
 }

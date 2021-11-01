@@ -12,8 +12,8 @@ import CreateUser from "./features/createUser/CreateUser";
 import OrderList from "./features/orderlist/OrderList";
 import OrderDetailAdmin from "./features/orderdetail/OrderDetailAdmin";
 import CategoriesList from "./features/categorylist/CategoriesList";
-//import ProductDetail from "./features/productdetail/ProductDetail";
-//import CreateProduct from "./features/createproduct/CreateProduct";
+import ProductDetail from "./features/productdetail/ProductDetail";
+import CreateProduct from "./features/createproduct/CreateProduct";
 import Product from "../Products/Products";
 function AdminPage() {
   const state = useContext(GlobalState);
@@ -50,6 +50,12 @@ function AdminPage() {
                   component={CategoriesList}
                 />
                 <Route path="/products" exact component={Product} />
+                <Route
+                  path="/productdetail/:id"
+                  exact
+                  component={ProductDetail}
+                />
+                <Route path="/createproduct" exact component={CreateProduct} />
               </Switch>
             </div>
           </div>

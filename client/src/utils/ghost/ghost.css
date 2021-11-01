@@ -1,0 +1,103 @@
+.ghost {
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 120px;
+  background-color: orange;
+  margin: -15px;
+  border-radius: 100rem 100rem 0 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  z-index: 999;
+}
+.ghost-cloak {
+  top: 0;
+  right: 0;
+  margin: 25px;
+  border-bottom: 100px solid red;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  width: 140px;
+  z-index: 999;
+  position: fixed;
+  animation: ghost 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) alternate infinite;
+}
+.ghost-cloak::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  top: -10px;
+  right: 15px;
+  margin: -30px;
+  border-bottom: 50px solid black;
+  border-right: 50px solid transparent;
+  z-index: 998;
+
+  border-left: 50px solid transparent;
+}
+
+.ghost::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  transform: translateY(50%);
+  border-radius: 0 0 100rem 100rem;
+  background-color: rgb(241, 199, 121);
+  margin-top: 10px;
+  box-shadow: 20px 0 0 0 blanchedalmond, 40px 0 0 0 rgb(241, 199, 121),
+    60px 0 0 0 blanchedalmond, 80px 0 0 0 rgb(241, 199, 121);
+}
+.ghost::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: bisque;
+  border-radius: 100rem;
+  position: absolute;
+  left: -10px;
+  box-shadow: 100px 0 0 0 bisque;
+}
+
+.ghost-body {
+  width: 100%;
+  max-width: 50%;
+  height: 50px;
+}
+.ghost-eye {
+  width: 20px;
+  height: 20px;
+  background-color: #191a2e;
+  border-radius: 100rem;
+  box-shadow: 30px 0 0 0 #191a2e;
+}
+.ghost-mouth {
+  width: 100%;
+  max-width: 80%;
+  margin: 10px auto 0;
+  background-color: #191a2e;
+  height: 20px;
+  border-radius: 0 0 100rem 100rem;
+  position: relative;
+}
+.ghost-mouth::before {
+  content: "";
+  position: absolute;
+  left: 30%;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  box-shadow: 17px 0 0 0 white, 15px 0 0 0 red;
+}
+@keyframes ghost {
+  to {
+    transform: translateY(40%);
+  }
+}

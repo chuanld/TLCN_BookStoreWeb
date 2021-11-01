@@ -18,6 +18,7 @@ import ForgotPass from "./features/auth/ForgotPass";
 import ResetPass from "./features/auth/ResetPass";
 
 import NotFound from "./utils/notfound/NotFound";
+import Ghost from "./utils/ghost/Ghost";
 
 function App() {
   const state = useContext(GlobalState);
@@ -26,6 +27,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        <Ghost />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/products" exact component={Product} />

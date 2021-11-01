@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 import CategoriesApi from "./api/CategoriesApi";
 import ProductsApi from "./api/ProductsApi";
 import UserApi from "./api/UserApi";
-//import AllUsersApi from "./api/AllUsersApi";
+import ProductsApiAdmin from "./api/ProductsApiAdmin";
 
 export const GlobalState = createContext();
 
@@ -37,8 +37,10 @@ export const DataProvider = ({ children }) => {
     token: [token, setToken],
     callback: [callback, setCallback],
     productsApi: ProductsApi(),
+    productsApiAdmin: ProductsApiAdmin(token),
     categoriesApi: CategoriesApi(),
     userApi: UserApi(token),
+
     //allUsersApi: AllUsersApi(token),
   };
   ProductsApi();
